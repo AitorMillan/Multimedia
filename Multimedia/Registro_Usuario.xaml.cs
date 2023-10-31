@@ -38,5 +38,40 @@ namespace Multimedia
         {
             this.InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void NombreApellidos_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                lblEstado.DataContext = "Se pulsó el enter ";
+                Contraseña.IsEnabled = true;
+                Contraseña.Focus(FocusState.Programmatic);
+            }
+        }
+
+        private void Username_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                lblEstado.DataContext = "Se pulsó el enter ";
+                Contraseña.IsEnabled = true;
+                Contraseña.Focus(FocusState.Programmatic);
+            }
+        }
+
+        private void Correo_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                lblEstado.DataContext = "Se pulsó el enter ";
+                Contraseña.IsEnabled = true;
+                Contraseña.Focus(FocusState.Programmatic);
+            }
+        }
     }
 }

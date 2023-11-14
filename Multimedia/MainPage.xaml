@@ -9,64 +9,75 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid x:Name="pnlDisenoPrincipal" Margin="0,0,0,-16">
         <Grid.RowDefinitions>
-            <RowDefinition Height="86*"/>
-            <RowDefinition Height="233*"/>
-
-            <RowDefinition Height="106*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="261*"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="197*"/>
+            <RowDefinition Height="99*"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="149*"/>
-            <ColumnDefinition Width="380*"/>
-            <ColumnDefinition Width="149*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="291*"/>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="255*"/>
+            <ColumnDefinition Width="168*"/>
+            <ColumnDefinition Width="168*"/>
+            <ColumnDefinition Width="290*"/>
+
 
         </Grid.ColumnDefinitions>
 
 
 
         <Rectangle x:Name="FondoVentana" 
-                   Grid.Row="0" Grid.Column="0"  Grid.RowSpan="3" Grid.ColumnSpan="5"
+                   Grid.Row="0" Grid.Column="0"
                    RadiusX="1" RadiusY="1" 
                    Stroke="Black" Opacity="0.6" 
                    StrokeThickness="3" 
-                   RenderTransformOrigin="0.5,0.5" Margin="0,0,0,12">
+                   RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="7" Grid.RowSpan="7">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/Fondo_Multimedia.png" Opacity="0.8"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="Fondo_Login"
-                   Margin="80,66,80,100"
-                   Width="1102" Grid.Column="1" 
+        <Rectangle x:Name="Fondo_Login" 
                    Stroke="Black"
-                   StrokeThickness="3" Grid.RowSpan="3" 
-                   RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.ColumnSpan="3">
+                   StrokeThickness="3" 
+                   RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.ColumnSpan="5" Grid.RowSpan="4" Grid.Row="2" Grid.Column="1">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FF0C0A0A" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="lblLogin" Grid.Column="2" Text="Usuario" HorizontalAlignment="Left" Margin="129,225,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="60" Width="250"/>
-        <TextBlock x:Name="lblContra" Grid.Column="2" Text="Contraseña" HorizontalAlignment="Left" Margin="129,370,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FFF6EFEF" FontSize="30" RenderTransformOrigin="-0.309,0.544" Width="250" Height="60"/>
-        <TextBlock x:Name="lblTitulo" Grid.Column="2" Text="Iniciar Sesión" HorizontalAlignment="Left" Margin="259,144,0,0" VerticalAlignment="Top" Foreground="#FFEFE0E0" FontWeight="Bold" FontSize="40" Height="100" Width="300" Grid.Row="1"/>
-        <TextBox x:Name="txtUsuario" Grid.Column="2" HorizontalAlignment="Left" 
-                 Margin="123,280,0,0" Grid.Row="1" TextWrapping="Wrap" 
-                 VerticalAlignment="Top" Width="516" Height="76" TabIndex="1"/>
-        <PasswordBox x:Name="passContra" Grid.Column="2" Margin="31,428,0,53" 
-                     Width="516" HorizontalAlignment="Center"
-                     Grid.Row="1" PasswordChar="*" Background="#FF9C8787" TabIndex="2"/>
-        <Button x:Name="btnLogin" Grid.Column="2" Content="Iniciar Sesión" Margin="244,9,0,0" Grid.Row="2" VerticalAlignment="Top" Height="78" Width="298" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188"/>
-        <TextBlock x:Name="lblRecordarContra" Grid.Column="2" 
-               Text="¿Olvidó su contraseña?" HorizontalAlignment="Left" Margin="458,508,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF7C96F3" FontStyle="Italic" Width="194" Height="40" FontSize="18"/>
-        <Image x:Name="icono_login" Grid.Column="2" 
-               HorizontalAlignment="Left" Height="245" 
-               Margin="263,105,0,0" VerticalAlignment="Top" 
-               Width="240" Source="/Assets/logo 2.png" Grid.RowSpan="2"/>
-        <Image x:Name="imgCheckUsuario" Grid.Column="2" HorizontalAlignment="Left" 
-               Height="30" Margin="365,92,0,0" Grid.Row="1" 
+
+
+        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" 
+               Height="30" Margin="68,108,0,0" 
                VerticalAlignment="Top" Width="41" 
-               RenderTransformOrigin="0.415,1.023" Grid.ColumnSpan="2"/>
-        <Image x:Name="imgCheckContrasena" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="365,155,0,0" Grid.Row="1" VerticalAlignment="Top" Width="41"/>
+               RenderTransformOrigin="0.415,1.023" Grid.Column="2" Grid.Row="3"/>
+        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="68,171,0,0" VerticalAlignment="Top" Width="41" Grid.Column="2" Grid.Row="3"/>
+        <StackPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3">
+            <TextBlock x:Name="lblLogin" Text="Usuario" Foreground="#FFF2EDED" FontSize="30" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtUsuario" TextWrapping="Wrap" TabIndex="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50" KeyUp="TextBoxUsuario_KeyUp"/>
+            <TextBlock x:Name="lblContra" Text="Contraseña" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6EFEF" FontSize="30" RenderTransformOrigin="-0.309,0.544" Grid.ColumnSpan="2" Grid.Row="1"/>
+            <PasswordBox x:Name="passContra" PasswordChar="*" Background="#FF9C8787" TabIndex="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50" KeyUp="passContra_KeyUp"/>
+
+        </StackPanel>
+        <Grid Grid.Column="6" Margin="0,0,0,69" Grid.RowSpan="2"/>
+        <VariableSizedWrapGrid Grid.Column="5" Margin="0,0,1,69" Grid.RowSpan="2"/>
+
+        <Image x:Name="icono_login" Source="/Assets/logo 2.png" Grid.Column="3" Grid.Row="3"/>
+
+
+        <StackPanel Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top">
+            <Button x:Name="btnLogin" Content="Iniciar Sesión" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Grid.Row="4" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="btnLogin_Click"/>
+            <TextBlock x:Name="lblRecordarContra" 
+       Text="¿Olvidó su contraseña?" Foreground="#FF7C96F3" FontStyle="Italic" FontSize="18" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Viewbox Grid.Column="3" Grid.Row="2">
+            <TextBlock x:Name="lblTitulo" Text="Iniciar Sesión" Foreground="#FFEFE0E0" FontWeight="Bold" FontSize="40" Grid.Column="3" Grid.Row="2"/>
+        </Viewbox>
 
     </Grid>
 </Page>

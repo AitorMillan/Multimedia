@@ -27,23 +27,12 @@
         <TextBox x:Name="Username" HorizontalAlignment="Left" 
             Margin="542,508,0,0" TextWrapping="Wrap" 
             VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Username" FontSize="20" KeyDown="Username_KeyDown"/>
-        <TextBox x:Name="Correo" HorizontalAlignment="Left" 
-            Margin="542,574,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Correo" FontSize="20" KeyDown="Correo_KeyDown"/>
         <TextBox x:Name="Contraseña" HorizontalAlignment="Left" 
             Margin="542,642,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Contraseña" FontSize="20" IsEnabled="False"/>
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown"/>
         <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" Margin="313,508,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130"/>
-        <TextBlock x:Name="lblCorreo" Text="Correo:" HorizontalAlignment="Left" Margin="313,574,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130" RenderTransformOrigin="0.331,0.462"/>
         <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Left" Margin="313,642,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="162"/>
-        <TextBlock x:Name="lblEstado"
-            DataContext="Estado de la aplicación"
-            Foreground="White"
-            FontWeight="Bold"
-            Margin="0,898,0,0"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center" Height="62" FocusVisualPrimaryBrush="#FFD6CDCD" Opacity="0.7" Width="1268" />
-        
+
         <Button x:Name="btnRegistrar" Content="Registrar" Margin="599,726,0,0" VerticalAlignment="Top" Height="78" Width="298" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188"/>
 
     </Grid>

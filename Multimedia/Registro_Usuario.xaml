@@ -23,17 +23,17 @@
         <TextBlock x:Name="lblLogin" Text="Usuario:" HorizontalAlignment="Left" Margin="313,440,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130"/>
         <TextBox x:Name="NombreApellidos" HorizontalAlignment="Left" 
             Margin="542,440,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Nombre y Apellidos" FontSize="20" KeyDown="NombreApellidos_KeyDown"/>
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre y Apellido"  FontSize="20" KeyDown="NombreApellidos_KeyDown"/>
         <TextBox x:Name="Username" HorizontalAlignment="Left" 
             Margin="542,508,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Username" FontSize="20" KeyDown="Username_KeyDown"/>
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" KeyDown="Username_KeyDown"/>
         <TextBox x:Name="Contraseña" HorizontalAlignment="Left" 
-            Margin="542,642,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" Text="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown"/>
-        <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" Margin="313,508,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130"/>
-        <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Left" Margin="313,642,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="162"/>
+            Margin="542,586,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown"/>
+        <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" Margin="313,508,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="146"/>
+        <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Left" Margin="305,586,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="162"/>
 
-        <Button x:Name="btnRegistrar" Content="Registrar" Margin="599,726,0,0" VerticalAlignment="Top" Height="78" Width="298" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188"/>
+        <Button x:Name="btnRegistrar" Content="Registrar" Margin="588,706,0,0" VerticalAlignment="Top" Height="88" Width="320" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Click="btnRegistrar_Click"/>
 
     </Grid>
 </Page>

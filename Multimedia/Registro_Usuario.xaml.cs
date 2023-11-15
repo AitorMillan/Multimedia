@@ -22,13 +22,13 @@ namespace Multimedia
     public class Usuario
     {
         public string Nombre { get; set; }
-        public string Apellidos { get; set; }
+        public string Username { get; set; }
         public string Contraseña { get; set; }
 
-        public Usuario(string nombre, string apellidos, string contraseña)
+        public Usuario(string nombre, string username, string contraseña)
         {
             Nombre = nombre;
-            Apellidos = apellidos;
+            Username = username;
             Contraseña = contraseña;
         }
     }
@@ -41,12 +41,32 @@ namespace Multimedia
             this.InitializeComponent();
         }
 
+        private bool UsuarioYaRegistrado(string nombreyapellidos, string username)
+        {
+            // Verificar si ya existe un usuario con el mismo nombre/apellidos o username
+            return usuarios.Any(u => u.Nombre == nombreyapellidos || u.Username == username);
+        }
+
         private void GuardarUsuario()
         {
             // Obtener datos de los campos
             string nombreyapellidos = NombreApellidos.Text;
             string username = Username.Text;
             string contraseña = Contraseña.Text;
+
+            // Validar que los campos no estén vacíos
+            if (string.IsNullOrWhiteSpace(nombreyapellidos) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(contraseña))
+            {
+                MostrarMensaje("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Verificar si el usuario ya está registrado
+            if (UsuarioYaRegistrado(nombreyapellidos, username))
+            {
+                MostrarMensaje("Este usuario ya está registrado.");
+                return;
+            }
 
             // Crear un nuevo usuario
             Usuario nuevoUsuario = new Usuario(nombreyapellidos, username, contraseña);
@@ -57,10 +77,12 @@ namespace Multimedia
             // Aquí puedes guardar la lista de usuarios en algún lugar (por ejemplo, en un archivo)
             // GuardarUsuariosEnArchivo();
 
-            // También puedes realizar otras acciones, como mostrar un mensaje de éxito
-            // o navegar a otra página, dependiendo de tus necesidades.
+            // Mostrar un mensaje de éxito
             MostrarMensaje("Usuario registrado con éxito.");
+
+            // También puedes realizar otras acciones, como navegar a otra página, dependiendo de tus necesidades.
         }
+
 
         private async void MostrarMensaje(string mensaje)
         {
@@ -73,8 +95,7 @@ namespace Multimedia
             // Verificar si la tecla presionada es "Enter"
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                // Llamar a la función para guardar el usuario
-                GuardarUsuario();
+                
             }
         }
 
@@ -83,8 +104,7 @@ namespace Multimedia
             // Verificar si la tecla presionada es "Enter"
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                // Llamar a la función para guardar el usuario
-                GuardarUsuario();
+                
             }
         }
 
@@ -93,9 +113,13 @@ namespace Multimedia
             // Verificar si la tecla presionada es "Enter"
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                // Llamar a la función para guardar el usuario
-                GuardarUsuario();
+                
             }
+        }
+
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        {
+            GuardarUsuario();
         }
     }
 }

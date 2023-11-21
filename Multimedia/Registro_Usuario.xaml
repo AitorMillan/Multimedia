@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Multimedia.Registro_Usuario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Multimedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="960" Width="1270">
+
+    <Grid x:Name="Fondo_Ventana">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Fondo_Multimedia.png" Opacity="0.6"/>
+        </Grid.Background>
+        <Rectangle x:Name="fondoLogin" Margin="132,103,132,103"  Stroke="Black" UseLayoutRounding="True" Fill="#FF212121">
+            <Rectangle.RadiusX>40</Rectangle.RadiusX>
+            <Rectangle.RadiusY>40</Rectangle.RadiusY>
+        </Rectangle>
+        <Border x:Name="imagenLogin" HorizontalAlignment="Left" Height="253" Margin="202,149,0,0" VerticalAlignment="Top" Width="278" CornerRadius="10">
+            <Image Source="/Assets/logo 2.png" Stretch="Fill" />
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="542,231,0,0" TextWrapping="Wrap" Text="REGÍSTRATE" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" FontSize="67" FontWeight="Bold" TextDecorations="Underline" Foreground="#FFD6D6D6"/>
+        <TextBlock x:Name="lblLogin" Text="Usuario:" HorizontalAlignment="Left" Margin="313,440,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130"/>
+        <TextBox x:Name="NombreApellidos" HorizontalAlignment="Left" 
+            Margin="542,440,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre y Apellido"  FontSize="20" KeyDown="NombreApellidos_KeyDown"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" 
+            Margin="542,508,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" KeyDown="Username_KeyDown"/>
+        <TextBox x:Name="Contraseña" HorizontalAlignment="Left" 
+            Margin="542,586,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown"/>
+        <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" Margin="313,508,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="146"/>
+        <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Left" Margin="305,586,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="162"/>
+
+        <Button x:Name="btnRegistrar" Content="Registrar" Margin="588,706,0,0" VerticalAlignment="Top" Height="88" Width="320" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Click="btnRegistrar_Click"/>
+
+    </Grid>
+</Page>

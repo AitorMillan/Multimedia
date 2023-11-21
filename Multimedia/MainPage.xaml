@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="white">
     <Grid x:Name="pnlDisenoPrincipal" Margin="0,0,0,-16">
         <Grid.RowDefinitions>
             <RowDefinition Height="65*"/>
@@ -52,29 +52,35 @@
         </Rectangle>
 
 
-        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" 
-               Height="30" Margin="68,108,0,0" 
+        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Right" 
+               Height="30" 
                VerticalAlignment="Top" Width="41" 
-               RenderTransformOrigin="0.415,1.023" Grid.Column="2" Grid.Row="3"/>
-        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="68,171,0,0" VerticalAlignment="Top" Width="41" Grid.Column="2" Grid.Row="3"/>
+               RenderTransformOrigin="0.415,1.023" Grid.Column="1" Grid.Row="4" Margin="0,20,0,0"/>
+        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="106,134,0,0" VerticalAlignment="Top" Width="41" Grid.Column="1" Grid.Row="4"/>
+            <Viewbox Grid.Column="2" Grid.ColumnSpan="3" Margin="0,10,0,0" Grid.Row="4">
         <StackPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3">
+                
             <TextBlock x:Name="lblLogin" Text="Usuario" Foreground="#FFF2EDED" FontSize="30" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtUsuario" TextWrapping="Wrap" TabIndex="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50" KeyUp="TextBoxUsuario_KeyUp"/>
+            <TextBox x:Name="txtUsuario" TextWrapping="Wrap" TabIndex="1" Grid.ColumnSpan="2" Grid.Row="1" KeyUp="TextBoxUsuario_KeyUp" Width="404.8"/>
             <TextBlock x:Name="lblContra" Text="Contraseña" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6EFEF" FontSize="30" RenderTransformOrigin="-0.309,0.544" Grid.ColumnSpan="2" Grid.Row="1"/>
             <PasswordBox x:Name="passContra" PasswordChar="*" Background="#FF9C8787" TabIndex="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50" KeyUp="passContra_KeyUp"/>
+            <TextBlock x:Name="lblError" Margin="0,15,0,0" FontSize="16"/>
 
-        </StackPanel>
+            </StackPanel>
+            </Viewbox>
         <Grid Grid.Column="6" Margin="0,0,0,69" Grid.RowSpan="2"/>
         <VariableSizedWrapGrid Grid.Column="5" Margin="0,0,1,69" Grid.RowSpan="2"/>
 
         <Image x:Name="icono_login" Source="/Assets/logo 2.png" Grid.Column="3" Grid.Row="3"/>
 
-
-        <StackPanel Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top">
+        <Viewbox Grid.Row="5" Grid.Column="3" VerticalAlignment="Top">
+            
+        <StackPanel Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Margin="0,10,0,0">
             <Button x:Name="btnLogin" Content="Iniciar Sesión" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Grid.Row="4" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="btnLogin_Click"/>
             <Button x:Name="btnRegistro" 
        Content="Registrarse" Foreground="#FFF3E9E9" Background="#FF5180E5" FontSize="25" Grid.Row="4" FontWeight="Bold" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Click="btnRegistro_Click"/>
         </StackPanel>
+        </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="2">
             <TextBlock x:Name="lblTitulo" Text="Iniciar Sesión" Foreground="#FFEFE0E0" FontWeight="Bold" FontSize="40" Grid.Column="3" Grid.Row="2"/>
         </Viewbox>

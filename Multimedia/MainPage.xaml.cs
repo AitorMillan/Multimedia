@@ -19,6 +19,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ViewManagement;
+
 
 
 
@@ -26,7 +28,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Multimedia
 {
-    
+
     public sealed partial class MainPage : Page
     {
         private Registro_Usuario datosusuario;
@@ -44,23 +46,16 @@ namespace Multimedia
 
         private void TextBoxUsuario_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
+            if (ComprobarEntrada(txtUsuario.Text, usuario))
             {
-                if (ComprobarEntrada(txtUsuario.Text, usuario,
-                txtUsuario, imgCheckUsuario))
-                {
-                    // habilitar entrada de contraseña y pasarle el foco
-                    passContra.IsEnabled = true;
-                    passContra.Focus(FocusState.Programmatic);
-                    // deshabilitar entrada de login
-                    txtUsuario.IsEnabled = false;
-                }
+                passContra.Focus(FocusState.Programmatic);
             }
         }
+
         private void passContra_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-           
-            if (ComprobarEntrada(passContra.Password, password, passContra, imgCheckContrasena))
+
+            if (ComprobarEntrada(passContra.Password, password))
             {
                 btnLogin.Focus(FocusState.Programmatic);
             }
@@ -84,20 +79,16 @@ namespace Multimedia
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
         }
 
-        private Boolean ComprobarEntrada(string valorIntroducido, string valorValido,
-        Control componenteEntrada, Image imagenFeedBack)
+        private Boolean ComprobarEntrada(string valorIntroducido, string valorValido)
         {
             Boolean valido = false;
             if (valorIntroducido.Equals(valorValido))
             {
-                // borde y background en verde
-                componenteEntrada.Background = new SolidColorBrush(Colors.Green);
-                // imagen al lado de la entrada de usuario --> check
-                imagenFeedBack.Source = imagCheck;
                 valido = true;
             }
             else
             {
+
             // marcamos borde en rojo
             componenteEntrada.Background = new SolidColorBrush(Colors.Red);
                 lblError.Text = "El usuario o la contraseña introducidos son incorrectos";
@@ -109,21 +100,36 @@ namespace Multimedia
             return valido;
         }
 
-        private async void VentanaPrincipal_Unloaded(object sender, RoutedEventArgs e)
+        private void RellenarCamposBien()
         {
-            var messageDialog = new MessageDialog("Gracias por usar nuestra aplicación...", "Despedida");
-            await messageDialog.ShowAsync();
+            // Establecer colores e imágenes al hacer clic en el botón de inicio de sesión
+            txtUsuario.Background = new SolidColorBrush(Colors.Green);
+            imgCheckUsuario.Source = imagCheck;
+
+            passContra.Background = new SolidColorBrush(Colors.Green);
+            imgCheckContrasena.Source = imagCheck;
+        }
+
+        private void RellenarCamposMal()
+        {
+            // Establecer colores e imágenes al hacer clic en el botón de inicio de sesión
+            txtUsuario.Background = new SolidColorBrush(Colors.Red);
+            imgCheckUsuario.Source = imagCross;
+
+            passContra.Background = new SolidColorBrush(Colors.Red);
+            imgCheckContrasena.Source = imagCross;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (ComprobarEntrada(txtUsuario.Text, usuario,
-                    txtUsuario, imgCheckUsuario)
+            if (ComprobarEntrada(txtUsuario.Text, usuario)
                 &&
-                ComprobarEntrada(passContra.Password, password,
-                    passContra, imgCheckContrasena))
+                (ComprobarEntrada(passContra.Password, password)))
             {
-                //Pantalla correspondiente, todavía por definir
+                RellenarCamposBien();
+            }else
+            {
+                RellenarCamposMal();
             }
         }
 

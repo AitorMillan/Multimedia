@@ -50,7 +50,7 @@ namespace Multimedia
         private void GuardarUsuario()
         {
             // Obtener datos de los campos
-            string nombreyapellidos = NombreApellidos.Text;
+            string nombreyapellidos = "si";
             string username = Username.Text;
             string contraseña = Contraseña.Text;
 

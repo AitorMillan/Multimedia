@@ -6,34 +6,76 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="960" Width="1270">
+    Background="White">
 
     <Grid x:Name="Fondo_Ventana">
-        <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Fondo_Multimedia.png" Opacity="0.6"/>
-        </Grid.Background>
-        <Rectangle x:Name="fondoLogin" Margin="132,103,132,103"  Stroke="Black" UseLayoutRounding="True" Fill="#FF212121">
-            <Rectangle.RadiusX>40</Rectangle.RadiusX>
-            <Rectangle.RadiusY>40</Rectangle.RadiusY>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="209*"/>
+            <RowDefinition Height="98*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="114*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="330*"/>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="298*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle x:Name="FondoVentana" 
+                   Grid.Row="0" Grid.Column="0"
+                   RadiusX="1" RadiusY="1" 
+                   Stroke="Black" Opacity="0.6" 
+                   StrokeThickness="3" 
+                   RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="7" Grid.RowSpan="8">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/Fondo_Multimedia.png" Opacity="0.8"/>
+            </Rectangle.Fill>
         </Rectangle>
-        <Border x:Name="imagenLogin" HorizontalAlignment="Left" Height="253" Margin="202,149,0,0" VerticalAlignment="Top" Width="278" CornerRadius="10">
-            <Image Source="/Assets/logo 2.png" Stretch="Fill" />
-        </Border>
-        <TextBlock HorizontalAlignment="Left" Margin="542,231,0,0" TextWrapping="Wrap" Text="REGÍSTRATE" VerticalAlignment="Top" FocusVisualPrimaryBrush="Black" FontSize="67" FontWeight="Bold" TextDecorations="Underline" Foreground="#FFD6D6D6"/>
-        <TextBlock x:Name="lblLogin" Text="Usuario:" HorizontalAlignment="Left" Margin="313,440,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="130"/>
-        <TextBox x:Name="NombreApellidos" HorizontalAlignment="Left" 
-            Margin="542,440,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre y Apellido"  FontSize="20" KeyDown="NombreApellidos_KeyDown"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" 
-            Margin="542,508,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" KeyDown="Username_KeyDown"/>
-        <TextBox x:Name="Contraseña" HorizontalAlignment="Left" 
-            Margin="542,586,0,0" TextWrapping="Wrap" 
-            VerticalAlignment="Top" Width="412" Height="40" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown"/>
-        <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" Margin="313,508,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="146"/>
-        <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Left" Margin="305,586,0,0" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Height="52" Width="162"/>
 
-        <Button x:Name="btnRegistrar" Content="Registrar" Margin="588,706,0,0" VerticalAlignment="Top" Height="88" Width="320" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Click="btnRegistrar_Click"/>
+        <Rectangle x:Name="Fondo_Login" 
+                   Stroke="Black"
+                   StrokeThickness="3" 
+                   RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="5" Grid.Row="1" >
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF0C0A0A" Opacity="1"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
+        <Viewbox Grid.Row="5" Grid.Column="3">
+            <Button x:Name="btnRegistrar" Content="Registrar" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Click="btnRegistrar_Click" Grid.Column="3" Grid.Row="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Viewbox>
+
+
+        <Viewbox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
+            <StackPanel Height="253" Orientation="Horizontal" Grid.Column="2" Grid.Row="2">
+                <Image x:Name="icono_login" Source="/Assets/logo 2.png"/>
+                <TextBlock TextWrapping="Wrap" Text="Registro" FocusVisualPrimaryBrush="Black" FontSize="67" FontWeight="Bold" TextDecorations="Underline" Foreground="#FFD6D6D6" VerticalAlignment="Center" Margin="50,0,0,0"/>
+            </StackPanel>
+        </Viewbox>
+
+        <!-- Para volver a poner username y contraseña con el mismo tamaño, subir el margin por arriba y abajo-->
+
+        <Viewbox Grid.Row="3" Grid.Column="2">
+            <StackPanel Grid.Column="2" Grid.Row="3">
+                <TextBlock x:Name="lblUsername" Text="Username:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF2EDED" FontSize="30" Grid.Column="2" Grid.Row="3" Margin="0,12,0,13"/>
+                <TextBlock x:Name="lblContraseña" Text="Contraseña:" HorizontalAlignment="Center" Foreground="#FFF2EDED" FontSize="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Viewbox>
+
+        <Viewbox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
+            <StackPanel Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Width="373">
+                <TextBox x:Name="Username" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" KeyDown="Username_KeyDown" Grid.Column="3" Grid.Row="3" Margin="10,25,0,25" Width="284" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="39.9"/>
+                <TextBox x:Name="Contraseña" HorizontalAlignment="Left" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown" Grid.Column="3" Grid.Row="3" Width="284" Height="39.9" Margin="10,0,0,0"/>
+            </StackPanel>
+        </Viewbox>
     </Grid>
 </Page>
+

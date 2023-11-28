@@ -23,22 +23,8 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Multimedia
 {
-    public class Usuario
-    {
-        public string Nombre { get; set; }
-        public string Username { get; set; }
-        public string Contraseña { get; set; }
-
-        public Usuario(string nombre, string username, string contraseña)
-        {
-            Nombre = nombre;
-            Username = username;
-            Contraseña = contraseña;
-        }
-    }
     public sealed partial class Registro_Usuario : Page
     {
-        private List<Usuario> usuarios = new List<Usuario>();
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         string XMLFilePath = ApplicationData.Current.LocalFolder.Path + "/usuarios.xml";
 

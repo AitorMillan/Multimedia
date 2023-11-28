@@ -22,15 +22,15 @@
             <RowDefinition Height="173*"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="imgVideo1"/>
-        <Image x:Name="imgVideo2" Grid.Column="1"/>
-        <Image x:Name="imgVideo3" Grid.Row="2"/>
-        <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1"/>
+        <Image x:Name="imgVideo1" Margin="0,20,0,0" Source="/Assets/RecetasImg1.png"/>
+        <Image x:Name="imgVideo2" Grid.Column="1" Margin="0,20,0,0" Source="/Assets/RecetasImg2.png"/>
+        <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/RecetasImg3.png" Margin="0,20,0,0"/>
+        <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Margin="0,20,0,0" Source="/Assets/RecetasImg5.png"/>
 
-        <TextBox x:Name="textBox1" Grid.Row="1"/>
-        <TextBox x:Name="textBox2" Grid.Row="1" Grid.Column="1"/>
-        <TextBox x:Name="textBox3" Grid.Row="3"/>
-        <TextBox x:Name="textBox4" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" TextDecorations="Underline" Text="Brownie de Chocolate" FontSize="25"/>
+        <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Macarrones con salsa de queso al horno"/>
+        <TextBlock x:Name="textBox3" Grid.Row="3" FontSize="25" FontWeight="Bold" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Tarta de galletas y chocolate"/>
+        <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Tarta de queso con mermelada de arándanos"/>
 
     </Grid>
 </Page>

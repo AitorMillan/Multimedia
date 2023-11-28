@@ -90,11 +90,11 @@ namespace Multimedia
             {
 
             // marcamos borde en rojo
-            componenteEntrada.Background = new SolidColorBrush(Colors.Red);
+            //componenteEntrada.Background = new SolidColorBrush(Colors.Red);
                 lblError.Text = "El usuario o la contraseña introducidos son incorrectos";
                 lblError.Visibility = Visibility.Visible;
             // imagen al lado de la entrada de usuario --> cross
-            imagenFeedBack.Source = imagCross;
+            //imagenFeedBack.Source = imagCross;
                 valido = false;
             }
             return valido;
@@ -131,6 +131,8 @@ namespace Multimedia
             {
                 RellenarCamposMal();
             }
+
+            
         }
 
         private void btnRegistro_Click(object sender, RoutedEventArgs e)

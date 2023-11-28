@@ -72,8 +72,8 @@
 
         <Viewbox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
             <StackPanel Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Width="373">
-                <TextBox x:Name="Username" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" KeyDown="Username_KeyDown" Grid.Column="3" Grid.Row="3" Margin="10,25,0,25" Width="284" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="39.9"/>
-                <TextBox x:Name="Contraseña" HorizontalAlignment="Left" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" PreviewKeyDown="Contraseña_PreviewKeyDown" Grid.Column="3" Grid.Row="3" Width="284" Height="39.9" Margin="10,0,0,0"/>
+                <TextBox x:Name="txtBoxUsername" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Nombre de Usuario" FontSize="20" Grid.Column="3" Grid.Row="3" Margin="10,25,0,25" Width="284" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="39.9"/>
+                <TextBox x:Name="txtBoxContraseña" HorizontalAlignment="Left" TextWrapping="Wrap" TabIndex="1" PlaceholderText="Contraseña" FontSize="20" IsEnabled="True" Grid.Column="3" Grid.Row="3" Width="284" Height="39.9" Margin="10,0,0,0"/>
             </StackPanel>
         </Viewbox>
     </Grid>

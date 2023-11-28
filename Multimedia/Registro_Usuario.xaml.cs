@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -35,52 +39,30 @@ namespace Multimedia
     public sealed partial class Registro_Usuario : Page
     {
         private List<Usuario> usuarios = new List<Usuario>();
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        string XMLFilePath = ApplicationData.Current.LocalFolder.Path + "/usuarios.xml";
 
         public Registro_Usuario()
         {
             this.InitializeComponent();
+            PrepararArchivo();
         }
 
-        private bool UsuarioYaRegistrado(string nombreyapellidos, string username)
+        private async void PrepararArchivo()
         {
-            // Verificar si ya existe un usuario con el mismo nombre/apellidos o username
-            return usuarios.Any(u => u.Nombre == nombreyapellidos || u.Username == username);
-        }
+            StorageFile file;
 
-        private void GuardarUsuario()
-        {
-            // Obtener datos de los campos
-            string nombreyapellidos = "si";
-            string username = Username.Text;
-            string contraseña = Contraseña.Text;
-
-            // Validar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(nombreyapellidos) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(contraseña))
+            try
             {
-                MostrarMensaje("Por favor, complete todos los campos.");
-                return;
+                file = await localFolder.GetFileAsync("usuarios.xml");
             }
-
-            // Verificar si el usuario ya está registrado
-            if (UsuarioYaRegistrado(nombreyapellidos, username))
+            catch (FileNotFoundException)
             {
-                MostrarMensaje("Este usuario ya está registrado.");
-                return;
+                // El archivo no existe en LocalFolder, así que lo copiamos desde el paquete
+                StorageFile initialFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/usuarios.xml"));
+                // Usa ReplaceExisting para sobrescribir si ya existe
+                file = await initialFile.CopyAsync(localFolder, "usuarios.xml", NameCollisionOption.ReplaceExisting);
             }
-
-            // Crear un nuevo usuario
-            Usuario nuevoUsuario = new Usuario(nombreyapellidos, username, contraseña);
-
-            // Agregar el nuevo usuario a la lista
-            usuarios.Add(nuevoUsuario);
-
-            // Aquí puedes guardar la lista de usuarios en algún lugar (por ejemplo, en un archivo)
-            // GuardarUsuariosEnArchivo();
-
-            // Mostrar un mensaje de éxito
-            MostrarMensaje("Usuario registrado con éxito.");
-
-            // También puedes realizar otras acciones, como navegar a otra página, dependiendo de tus necesidades.
         }
 
 
@@ -90,36 +72,65 @@ namespace Multimedia
             await mensajeDialog.ShowAsync();
         }
 
-        private void NombreApellidos_KeyDown(object sender, KeyRoutedEventArgs e)
+        private async Task<bool> comprobarUsuario(XmlDocument doc, String username)
         {
-            // Verificar si la tecla presionada es "Enter"
-            if (e.Key == Windows.System.VirtualKey.Enter)
+            XmlNodeList usersNodes = doc.SelectNodes("/Usuarios/Usuario");
+            foreach (XmlNode node in usersNodes)
             {
-                
+                string nombre = node.Attributes["Username"].Value;
+                if (nombre == username)
+                {
+                    // Crear y mostrar el cuadro de diálogo
+                    MessageDialog dialog = new MessageDialog("Ya existe un usuario con el mismo nombre de usuario.", "Error al registrar usuario");
+                    await dialog.ShowAsync();
+
+                    return true; // Retorna falso si se encuentra el usuario
+                }
             }
+
+            doc.Save(XMLFilePath);
+            return false;
         }
 
-        private void Username_KeyDown(object sender, KeyRoutedEventArgs e)
+        private async void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            // Verificar si la tecla presionada es "Enter"
-            if (e.Key == Windows.System.VirtualKey.Enter)
+            XmlDocument doc = new XmlDocument();
+            String username = txtBoxUsername.Text;
+            String pwd = txtBoxContraseña.Text;
+            
+            if (username == "" || pwd == "")
             {
-                
+                MessageDialog dialog = new MessageDialog("El campo usuario o contraseña está vacío.", "Error al registrar usuario");
+                await dialog.ShowAsync();
+                return;
             }
-        }
 
-        private void Contraseña_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            // Verificar si la tecla presionada es "Enter"
-            if (e.Key == Windows.System.VirtualKey.Enter)
+            SHA256 sha = SHA256.Create();
+            byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(pwd));
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
             {
-                
+                builder.Append(bytes[i].ToString("x2"));
             }
-        }
 
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
-        {
-            GuardarUsuario();
+            doc.Load(XMLFilePath);
+            if (!await comprobarUsuario(doc, username))
+            {
+
+                XmlElement user = doc.CreateElement("Usuario");
+                user.SetAttribute("Username", username);
+                user.SetAttribute("Pwd", builder.ToString());
+
+
+                // Obtener el elemento raíz del documento XML
+                XmlElement raiz = doc.DocumentElement;
+
+                // Agregar el nuevo elemento Excursionista al elemento raíz
+                raiz.AppendChild(user);
+
+                // Guardar los cambios en el archivo XML
+                doc.Save(XMLFilePath);
+            }
         }
     }
 }

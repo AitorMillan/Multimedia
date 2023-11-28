@@ -42,6 +42,7 @@ namespace Multimedia
         {
             this.InitializeComponent();
             datosusuario = new Registro_Usuario();
+
         }
 
         private void TextBoxUsuario_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -132,7 +133,27 @@ namespace Multimedia
                 RellenarCamposMal();
             }
 
-            
+            OpenNewWindow1();
+
+        }
+
+        private async void OpenNewWindow1()
+        {
+            CoreApplicationView newView = CoreApplication.CreateNewView();
+            int newViewId = 0;
+
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Frame frame = new Frame();
+                frame.Navigate(typeof(Principal), null);
+                Window.Current.Content = frame;
+                // You have to activate the window in order to show it later.
+                Window.Current.Activate();
+
+                newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
         }
 
         private void btnRegistro_Click(object sender, RoutedEventArgs e)

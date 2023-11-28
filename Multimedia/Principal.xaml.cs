@@ -30,6 +30,12 @@ namespace Multimedia
             this.InitializeComponent();
             SystemNavigationManager.GetForCurrentView().BackRequested += opcionVolver;
 
+            //tamaño mínimo de la ventana
+            ApplicationView.GetForCurrentView().SetPreferredMinSize
+            (new Size(320, 320));
+            ApplicationView.GetForCurrentView().VisibleBoundsChanged
+           += MainPage_VisibleBoundsChanged;
+
         }
 
         private void MainPage_VisibleBoundsChanged(ApplicationView sender, object args)

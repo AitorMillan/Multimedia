@@ -151,7 +151,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Alvaro Diaz Tainy FATAL FANTASSY Official Video.mp4" />
     <Content Include="Assets\bien.png" />
+    <Content Include="Assets\Columbia Quevedo Video Oficial.mp4" />
     <Content Include="Assets\Fondo_Multimedia.png" />
     <Content Include="Assets\logo 2.png" />
     <Content Include="Assets\logo_2-removebg-preview.png" />
@@ -160,6 +162,8 @@
     <Content Include="Assets\ManImg2.png" />
     <Content Include="Assets\ManImg3.png" />
     <Content Include="Assets\ManImg4.png" />
+    <Content Include="Assets\Mora Feid LA INOCENTE Video Oficial MICRODOSIS.mp4" />
+    <Content Include="Assets\Mora YOVNGCHIMI MODELITO Video Oficial.mp4" />
     <Content Include="Assets\RecetasImg1.png" />
     <Content Include="Assets\RecetasImg2.png" />
     <Content Include="Assets\RecetasImg3.png" />

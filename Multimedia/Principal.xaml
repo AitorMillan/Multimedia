@@ -36,9 +36,19 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                   
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnMusica" Grid.Row="0" Grid.Column="0" Content="Música" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontWeight="Bold" Margin="8,0,8,8" Click="btnMusica_Click"/>
+
+                    <SymbolIcon Grid.Row="0" Margin="4" Symbol="Audio"></SymbolIcon>
+                    <SymbolIcon Grid.Row="1" Margin="4" Symbol="Video"></SymbolIcon>
+                    <SymbolIcon Grid.Row="2" Margin="4" Symbol="Play"></SymbolIcon>
+                    <SymbolIcon Grid.Row="3" Margin="4" Symbol="Shop"></SymbolIcon>
+                    <SymbolIcon Grid.Row="4" Margin="4" Symbol="Edit"></SymbolIcon>
+
+                    <Button x:Name="btnMusica" Grid.Row="0" Grid.Column="1" Content="Música" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnMusica_Click"/>
                     <Button x:Name="btnTrailersPeliculas" Grid.Row="1" Grid.Column="1" Content="Trailers películas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnTrailers_Click"/>
                     <Button x:Name="btnTrailersVideojuegos" Grid.Row="2" Grid.Column="2" Content="Trailers videojuegos" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnVideoJuegos_Click"/>
                     <Button x:Name="btnRecetasCocina" Grid.Row="3" Grid.Column="3" Content="Recetas de cocina" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnRecetas_Click"/>

@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Multimedia.Musica"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Multimedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="173*"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="imgVideo1" Source="/Assets/Video1.png" Margin="0,20,0,0"/>
+        <Image x:Name="imgVideo2" Grid.Column="1" Source="/Assets/Video2.png" Margin="0,20,0,0"/>
+        <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/Video3.png" Margin="0,20,0,0"/>
+        <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Source="/Assets/Video4.png" Margin="0,20,0,0"/>
+
+        <TextBlock x:Name="textBox1" Grid.Row="1" Text="Alvaro Diaz, Tainy - FATAL FANTASSY" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+        <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" Text="Columbia - Quevedo (Video Oficial)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+        <TextBlock x:Name="textBox3" Grid.Row="3" Text="Mora, Feid - LA INOCENTE" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+        <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" Text="Mora, YOVNGCHIMI - MODELITO" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+
+
+    </Grid>
+</Page>

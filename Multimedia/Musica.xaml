@@ -30,33 +30,33 @@
         </Viewbox>
 
         <Viewbox Grid.Column="4" d:LayoutOverrides="TopPosition, BottomPosition">
-            <Image x:Name="imgVideo2" Grid.Column="4" Source="/Assets/Video2.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo2" Grid.Column="4" Source="/Assets/Video2.png" Margin="0,20,0,0" PointerReleased="imgVideo2_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="2" d:LayoutOverrides="TopPosition, BottomPosition" Grid.Column="1">
-            <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/Video3.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/Video3.png" Margin="0,20,0,0" PointerReleased="imgVideo3_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="2" Grid.Column="4" d:LayoutOverrides="TopPosition, BottomPosition">
-            <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Source="/Assets/Video4.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Source="/Assets/Video4.png" Margin="0,20,0,0" PointerReleased="imgVideo4_PointerReleased"/>
         </Viewbox>
         
 
         <Viewbox Grid.Row="1" Grid.Column="1">
-            <TextBlock x:Name="textBox1" Grid.Row="1" Text="Alvaro Diaz, Tainy - FATAL FANTASSY" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" TextDecorations="Underline"/>
+            <TextBlock x:Name="textBox1" Grid.Row="1" Text="Alvaro Diaz, Tainy - FATAL FANTASSY" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" TextDecorations="Underline" PointerReleased="textBox1_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="1" Grid.RowSpan="1">
-            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="3" Text="Columbia - Quevedo (Video Oficial)" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="3" Text="Columbia - Quevedo (Video Oficial)" FontSize="25" FontWeight="Bold" TextDecorations="Underline" PointerReleased="textBox2_PointerReleased"/>
 
         </Viewbox>
         
         <Viewbox Grid.Row="3" Grid.Column="1">
-            <TextBlock x:Name="textBox3" Grid.Row="3" Text="Mora, Feid - LA INOCENTE" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Grid.Column="1"/>
+            <TextBlock x:Name="textBox3" Grid.Row="3" Text="Mora, Feid - LA INOCENTE" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Grid.Column="1" PointerReleased="textBox3_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="3">
-            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="3" Text="Mora, YOVNGCHIMI - MODELITO" FontSize="25" FontWeight="Bold" TextDecorations="Underline"/>
+            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="3" Text="Mora, YOVNGCHIMI - MODELITO" FontSize="25" FontWeight="Bold" TextDecorations="Underline" PointerReleased="textBox4_PointerReleased"/>
         </Viewbox>
         
 

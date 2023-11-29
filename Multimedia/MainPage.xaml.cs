@@ -141,7 +141,7 @@ namespace Multimedia
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 0;
-
+            int currentViewId = ApplicationView.GetForCurrentView().Id;
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame frame = new Frame();
@@ -149,11 +149,15 @@ namespace Multimedia
                 Window.Current.Content = frame;
                 // You have to activate the window in order to show it later.
                 Window.Current.Activate();
-
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
 
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+
+            if (viewShown)
+            {
+                await ApplicationViewSwitcher.SwitchAsync(newViewId, currentViewId, ApplicationViewSwitchingOptions.ConsolidateViews);
+            }
         }
 
         private void btnRegistro_Click(object sender, RoutedEventArgs e)

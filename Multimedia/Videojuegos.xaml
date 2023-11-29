@@ -27,35 +27,35 @@
         </Grid.RowDefinitions>
 
         <Viewbox d:LayoutOverrides="TopPosition, BottomPosition" Grid.Column="1">
-            <Image x:Name="imgVideo1" Source="/Assets/VJImg1.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo1" Source="/Assets/VJImg1.png" Margin="0,20,0,0" PointerReleased="imgVideo1_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" d:LayoutOverrides="TopPosition, BottomPosition">
-            <Image x:Name="imgVideo2" Grid.Column="1" Source="/Assets/VJImg2.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo2" Grid.Column="1" Source="/Assets/VJImg2.png" Margin="0,20,0,0" PointerReleased="imgVideo2_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="2" d:LayoutOverrides="TopPosition, BottomPosition" Grid.Column="1">
-            <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/VJImg3.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo3" Grid.Row="2" Source="/Assets/VJImg3.png" Margin="0,20,0,0" PointerReleased="imgVideo3_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="2" Grid.Column="4" d:LayoutOverrides="TopPosition, BottomPosition">
-            <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Source="/Assets/VJImg4.png" Margin="0,20,0,0"/>
+            <Image x:Name="imgVideo4" Grid.Row="2" Grid.Column="1" Source="/Assets/VJImg4.png" Margin="0,20,0,0" PointerReleased="imgVideo4_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="1">
-            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Counter Strike 2 Tráiler Oficial"/>
+            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Counter Strike 2 Tráiler Oficial" PointerReleased="textBox1_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="1" Grid.RowSpan="1">
-            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Text="Fifa 2 Tráiler Oficial"/>
+            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Text="Fifa 2 Tráiler Oficial" PointerReleased="textBox2_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Row="3" Grid.Column="1">
-            <TextBlock x:Name="textBox3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Fortnite Tráiler Oficial (2023)"/>
+            <TextBlock x:Name="textBox3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Fortnite Tráiler Oficial (2023)" PointerReleased="textBox3_PointerReleased"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="3">
-            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Valorant Tráiler Oficial (2023)"/>
+            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Text="Valorant Tráiler Oficial (2023)" PointerReleased="textBox4_PointerReleased"/>
         </Viewbox>
         
         

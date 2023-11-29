@@ -27,9 +27,49 @@ namespace Multimedia
             this.InitializeComponent();
         }
 
+        private void videoSeleccionado(String nombreVideo)
+        {
+            Frame.Navigate(typeof(ReproduccionVideos), new Tuple<String>(nombreVideo));
+        }
+
         private void imgVideo1_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ReproduccionVideos), new Tuple<String>(textBox1.Text));
+            videoSeleccionado(textBox1.Text);
+        }
+
+        private void textBox1_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox1.Text);
+        }
+
+        private void imgVideo2_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox2.Text);
+        }
+
+        private void textBox2_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox2.Text);
+        }
+
+        private void imgVideo3_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox3.Text);
+        }
+
+        private void textBox3_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox3.Text);
+        }
+
+        private void imgVideo4_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox4.Text);
+        }
+
+        private void textBox4_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            videoSeleccionado(textBox4.Text);
         }
     }
 }

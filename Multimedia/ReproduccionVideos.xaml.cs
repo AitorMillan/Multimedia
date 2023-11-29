@@ -45,12 +45,22 @@ namespace Multimedia
 
             if (e.Parameter is Tuple<string> data)
             {
-                String numJugadores = data.Item1;
-                iniciarVideo(numJugadores);
+                String nombreVideo = data.Item1;
+                iniciarVideo(nombreVideo);
+                txtBlockTitulo.Text = nombreVideo;
 
                 //Controlamos que cuando se cambie de pagina se pare la musica
                 this.Frame.Navigated += MyFrame_NavigatedFrom;
             }
+        }
+
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+            }
+
         }
     }
 }

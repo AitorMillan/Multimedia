@@ -138,6 +138,9 @@
     <Compile Include="Registro_Usuario.xaml.cs">
       <DependentUpon>Registro_Usuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReproduccionVideos.xaml.cs">
+      <DependentUpon>ReproduccionVideos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trailers.xaml.cs">
       <DependentUpon>Trailers.xaml</DependentUpon>
     </Compile>
@@ -151,10 +154,25 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Alvaro Diaz Tainy FATAL FANTASSY Official Video.mp4" />
+    <Content Include="Assets\Alvaro Diaz, Tainy - FATAL FANTASSY.mp4" />
+    <Content Include="Assets\Brownie de Chocolate con a penas ingredientes.mp4" />
+    <Content Include="Assets\Counter Strike 2 Tráiler Oficial.mp4" />
+    <Content Include="Assets\Fifa 2 Tráiler Oficial.mp4" />
+    <Content Include="Assets\Fortnite Tráiler Oficial %282023%29.mp4" />
+    <Content Include="Assets\Los Juegos Del Hambre Balada De Pájaros Cantores Y Serpientes.mp4" />
+    <Content Include="Assets\Macarrones con salsa de queso al horno.mp4" />
+    <Content Include="Assets\Napoleon Official Trailer.mp4" />
+    <Content Include="Assets\Tarta de galletas y chocolate.mp4" />
+    <Content Include="Assets\Tarta de queso con mermelada de arándanos.mp4" />
+    <Content Include="Assets\The Marvels Tráiler Oficial.mp4" />
+    <Content Include="Assets\Valorant Tráiler Oficial %282023%29.mp4" />
+    <Content Include="Assets\WONKA Tráiler Oficial.mp4" />
+    <Content Include="Assets\Árbol de navidad con elementos caseros.mp4" />
     <Content Include="Assets\bien.png" />
-    <Content Include="Assets\Columbia Quevedo Video Oficial.mp4" />
+    <Content Include="Assets\Columbia - Quevedo %28Video Oficial%29.mp4" />
+    <Content Include="Assets\Aprende a hacer un corazón de origami.mp4" />
     <Content Include="Assets\Fondo_Multimedia.png" />
+    <Content Include="Assets\Cómo hacer gafas de papel.mp4" />
     <Content Include="Assets\logo 2.png" />
     <Content Include="Assets\logo_2-removebg-preview.png" />
     <Content Include="Assets\mal.png" />
@@ -162,8 +180,9 @@
     <Content Include="Assets\ManImg2.png" />
     <Content Include="Assets\ManImg3.png" />
     <Content Include="Assets\ManImg4.png" />
-    <Content Include="Assets\Mora Feid LA INOCENTE Video Oficial MICRODOSIS.mp4" />
-    <Content Include="Assets\Mora YOVNGCHIMI MODELITO Video Oficial.mp4" />
+    <Content Include="Assets\Mora, Feid - LA INOCENTE.mp4" />
+    <Content Include="Assets\Mora, YOVNGCHIMI - MODELITO.mp4" />
+    <Content Include="Assets\Cómo realizar una pulsera en apenas 5 minutos.mp4" />
     <Content Include="Assets\RecetasImg1.png" />
     <Content Include="Assets\RecetasImg2.png" />
     <Content Include="Assets\RecetasImg3.png" />
@@ -216,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registro_Usuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReproduccionVideos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -26,5 +26,10 @@ namespace Multimedia
         {
             this.InitializeComponent();
         }
+
+        private void imgVideo1_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ReproduccionVideos), new Tuple<String>(textBox1.Text));
+        }
     }
 }

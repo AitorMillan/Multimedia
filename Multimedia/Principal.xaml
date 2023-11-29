@@ -20,7 +20,7 @@
 
         <Border HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
-            <Button Margin="4">
+            <Button Margin="4" Click="desplegar_Click">
                 <FontIcon Foreground="White" Glyph="&#xE700;"
                 FontFamily="Segoe MDL2 Assets" />
             </Button>

@@ -28,6 +28,7 @@ namespace Multimedia
         public Principal()
         {
             this.InitializeComponent();
+
             SystemNavigationManager.GetForCurrentView().BackRequested += opcionVolver;
 
             //tamaño mínimo de la ventana
@@ -95,6 +96,11 @@ namespace Multimedia
         private void btnManualidades_Click(object sender, RoutedEventArgs e)
         {
             fmMain.Navigate(typeof(Manualidades));
+        }
+
+        private void desplegar_Click(object sender, RoutedEventArgs e)
+        {
+            sView.IsPaneOpen = !sView.IsPaneOpen;
         }
     }
 }

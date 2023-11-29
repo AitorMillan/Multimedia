@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Multimedia.ReproduccionVideos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Multimedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <MediaElement x:Name="mediaElementVideo" Height="445" Width="422" VerticalAlignment="Top"
+              AreTransportControlsEnabled="True" AutoPlay="False" Source="/Assets/Columbia Quevedo Video Oficial.mp4"/>
+    </Grid>
+</Page>

@@ -36,6 +36,7 @@ namespace Multimedia
 
         private async void PrepararArchivo()
         {
+            /*TO DO: Añadir a PrepararArchivo el xml Videos.xml */
             StorageFile file;
 
             try

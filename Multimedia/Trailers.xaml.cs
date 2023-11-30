@@ -27,6 +27,14 @@ namespace Multimedia
             this.InitializeComponent();
         }
 
+        private String buscarDescripcion(String nombreVideo)
+        {
+            String descripcionVideo;
+
+
+            return descripcionVideo;
+        }
+
         private void videoSeleccionado(String nombreVideo)
         {
             Frame.Navigate(typeof(ReproduccionVideos), new Tuple<String>(nombreVideo));

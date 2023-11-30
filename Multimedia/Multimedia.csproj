@@ -138,6 +138,7 @@
     <Content Include="Assets\logo 2.png" />
     <Content Include="Assets\logo_2-removebg-preview.png" />
     <Content Include="Assets\mal.png" />
+    <Content Include="Assets\usuarios.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

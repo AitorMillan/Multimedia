@@ -20,6 +20,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.ViewManagement;
+using Windows.Storage;
+using System.Xml;
+using System.Security.Cryptography;
+using System.Text;
 
 
 
@@ -32,8 +36,8 @@ namespace Multimedia
     public sealed partial class MainPage : Page
     {
         private Registro_Usuario datosusuario;
-        private string usuario = "admin";
-        private string password = "admin";
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        string XMLFilePath = ApplicationData.Current.LocalFolder.Path + "/usuarios.xml";
 
         private BitmapImage imagCheck = new BitmapImage(new Uri("ms-appx:///Assets/bien.png"));
         private BitmapImage imagCross = new BitmapImage(new Uri("ms-appx:///Assets/mal.png"));
@@ -44,22 +48,6 @@ namespace Multimedia
             datosusuario = new Registro_Usuario();
         }
 
-        private void TextBoxUsuario_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            if (ComprobarEntrada(txtUsuario.Text, usuario))
-            {
-                passContra.Focus(FocusState.Programmatic);
-            }
-        }
-
-        private void passContra_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-
-            if (ComprobarEntrada(passContra.Password, password))
-            {
-                btnLogin.Focus(FocusState.Programmatic);
-            }
-        }
         private async void OpenNewWindow()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
@@ -79,63 +67,50 @@ namespace Multimedia
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
         }
 
-        private Boolean ComprobarEntrada(string valorIntroducido, string valorValido)
+
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Boolean valido = false;
-            if (valorIntroducido.Equals(valorValido))
+            XmlDocument doc = new XmlDocument();
+            String username = txtUsuario.Text;
+            String pwd = passContra.Password;
+
+            if (username == "" || pwd == "")
             {
-                valido = true;
+                MessageDialog dialog = new MessageDialog("El campo usuario o contraseña está vacío.", "Error al registrar usuario");
+                await dialog.ShowAsync();
+                return;
             }
-            else
-            {
 
-            // marcamos borde en rojo
-            componenteEntrada.Background = new SolidColorBrush(Colors.Red);
-                lblError.Text = "El usuario o la contraseña introducidos son incorrectos";
-                lblError.Visibility = Visibility.Visible;
-            // imagen al lado de la entrada de usuario --> cross
-            imagenFeedBack.Source = imagCross;
-                valido = false;
+            SHA256 sha = SHA256.Create();
+            byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(pwd));
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
             }
-            return valido;
-        }
-
-        private void RellenarCamposBien()
-        {
-            // Establecer colores e imágenes al hacer clic en el botón de inicio de sesión
-            txtUsuario.Background = new SolidColorBrush(Colors.Green);
-            imgCheckUsuario.Source = imagCheck;
-
-            passContra.Background = new SolidColorBrush(Colors.Green);
-            imgCheckContrasena.Source = imagCheck;
-        }
-
-        private void RellenarCamposMal()
-        {
-            // Establecer colores e imágenes al hacer clic en el botón de inicio de sesión
-            txtUsuario.Background = new SolidColorBrush(Colors.Red);
-            imgCheckUsuario.Source = imagCross;
-
-            passContra.Background = new SolidColorBrush(Colors.Red);
-            imgCheckContrasena.Source = imagCross;
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            if (ComprobarEntrada(txtUsuario.Text, usuario)
-                &&
-                (ComprobarEntrada(passContra.Password, password)))
+            doc.Load(XMLFilePath);
+            XmlNodeList usersNodes = doc.SelectNodes("/Usuarios/Usuario");
+            foreach (XmlNode node in usersNodes)
             {
-                RellenarCamposBien();
-            }else
-            {
-                RellenarCamposMal();
+                String nombre = node.Attributes["Username"].Value;
+                String contra = node.Attributes["Pwd"].Value;
+                if (nombre == username && builder.ToString() == contra)
+                {
+                    lblError.Text = "Login exitoso";
+                    lblError.Visibility = Visibility.Visible;
+                }
+
             }
         }
 
         private void btnRegistro_Click(object sender, RoutedEventArgs e)
         {
             OpenNewWindow();
+        }
+
+        private void btnRegistro_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            //TO DO: Añadir que si el botón que se pulsa es "Enter" se llame al método btnLogin_Click()
         }
     }
 }

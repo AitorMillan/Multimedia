@@ -46,6 +46,7 @@ namespace Multimedia
         {
             this.InitializeComponent();
             datosusuario = new Registro_Usuario();
+
         }
 
         private async void OpenNewWindow()
@@ -100,6 +101,32 @@ namespace Multimedia
                     lblError.Visibility = Visibility.Visible;
                 }
 
+            }
+
+            OpenNewWindow1();
+
+        }
+
+        private async void OpenNewWindow1()
+        {
+            CoreApplicationView newView = CoreApplication.CreateNewView();
+            int newViewId = 0;
+            int currentViewId = ApplicationView.GetForCurrentView().Id;
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Frame frame = new Frame();
+                frame.Navigate(typeof(Principal), null);
+                Window.Current.Content = frame;
+                // You have to activate the window in order to show it later.
+                Window.Current.Activate();
+                newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+
+            if (viewShown)
+            {
+                await ApplicationViewSwitcher.SwitchAsync(newViewId, currentViewId, ApplicationViewSwitchingOptions.ConsolidateViews);
             }
         }
 

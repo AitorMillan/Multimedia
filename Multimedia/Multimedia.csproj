@@ -122,9 +122,30 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manualidades.xaml.cs">
+      <DependentUpon>Manualidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Musica.xaml.cs">
+      <DependentUpon>Musica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.xaml.cs">
+      <DependentUpon>Principal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recetas.xaml.cs">
+      <DependentUpon>Recetas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registro_Usuario.xaml.cs">
       <DependentUpon>Registro_Usuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReproduccionVideos.xaml.cs">
+      <DependentUpon>ReproduccionVideos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Trailers.xaml.cs">
+      <DependentUpon>Trailers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Videojuegos.xaml.cs">
+      <DependentUpon>Videojuegos.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -133,11 +154,54 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Alvaro Diaz, Tainy - FATAL FANTASSY.mp4" />
+    <Content Include="Assets\Brownie de Chocolate con a penas ingredientes.mp4" />
+    <Content Include="Assets\Counter Strike 2 Tráiler Oficial.mp4" />
+    <Content Include="Assets\Fifa 2 Tráiler Oficial.mp4" />
+    <Content Include="Assets\flecha-atras.png" />
+    <Content Include="Assets\Fortnite Tráiler Oficial %282023%29.mp4" />
+    <Content Include="Assets\Los Juegos Del Hambre Balada De Pájaros Cantores Y Serpientes.mp4" />
+    <Content Include="Assets\Macarrones con salsa de queso al horno.mp4" />
+    <Content Include="Assets\Napoleon Official Trailer.mp4" />
+    <Content Include="Assets\Tarta de galletas y chocolate.mp4" />
+    <Content Include="Assets\Tarta de queso con mermelada de arándanos.mp4" />
+    <Content Include="Assets\The Marvels Tráiler Oficial.mp4" />
+    <Content Include="Assets\Valorant Tráiler Oficial %282023%29.mp4" />
+    <Content Include="Assets\videos.xml" />
+    <Content Include="Assets\WONKA Tráiler Oficial.mp4" />
+    <Content Include="Assets\Árbol de navidad con elementos caseros.mp4" />
     <Content Include="Assets\bien.png" />
+    <Content Include="Assets\Columbia - Quevedo %28Video Oficial%29.mp4" />
+    <Content Include="Assets\Aprende a hacer un corazón de origami.mp4" />
     <Content Include="Assets\Fondo_Multimedia.png" />
+    <Content Include="Assets\Cómo hacer gafas de papel.mp4" />
     <Content Include="Assets\logo 2.png" />
     <Content Include="Assets\logo_2-removebg-preview.png" />
     <Content Include="Assets\mal.png" />
+    <Content Include="Assets\ManImg1.png" />
+    <Content Include="Assets\ManImg2.png" />
+    <Content Include="Assets\ManImg3.png" />
+    <Content Include="Assets\ManImg4.png" />
+    <Content Include="Assets\Mora, Feid - LA INOCENTE.mp4" />
+    <Content Include="Assets\Mora, YOVNGCHIMI - MODELITO.mp4" />
+    <Content Include="Assets\Cómo realizar una pulsera en apenas 5 minutos.mp4" />
+    <Content Include="Assets\RecetasImg1.png" />
+    <Content Include="Assets\RecetasImg2.png" />
+    <Content Include="Assets\RecetasImg3.png" />
+    <Content Include="Assets\RecetasImg4.png" />
+    <Content Include="Assets\RecetasImg5.png" />
+    <Content Include="Assets\TrailerImg1.png" />
+    <Content Include="Assets\TrailersImg2.png" />
+    <Content Include="Assets\TrailersImg3.png" />
+    <Content Include="Assets\TrailersImg4.png" />
+    <Content Include="Assets\Video1.png" />
+    <Content Include="Assets\Video2.png" />
+    <Content Include="Assets\Video3.png" />
+    <Content Include="Assets\Video4.png" />
+    <Content Include="Assets\VJImg1.png" />
+    <Content Include="Assets\VJImg2.png" />
+    <Content Include="Assets\VJImg3.png" />
+    <Content Include="Assets\VJImg4.png" />
     <Content Include="Assets\usuarios.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -157,7 +221,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Manualidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Musica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Principal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recetas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registro_Usuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReproduccionVideos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trailers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Videojuegos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

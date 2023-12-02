@@ -44,9 +44,10 @@ namespace Multimedia
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter is Tuple<string> data)
+            if (e.Parameter is Tuple<string, string> data)
             {
                 String nombreVideo = data.Item1;
+                String descripcionVideo = data.Item2;
 
                 iniciarVideo(nombreVideo);
 

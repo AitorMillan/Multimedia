@@ -19,6 +19,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ViewManagement;
+using Windows.Storage;
+using System.Xml;
+using System.Security.Cryptography;
+using System.Text;
+
 
 
 
@@ -26,12 +32,12 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Multimedia
 {
-    
+
     public sealed partial class MainPage : Page
     {
         private Registro_Usuario datosusuario;
-        private string usuario = "admin";
-        private string password = "admin";
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        string XMLFilePath = ApplicationData.Current.LocalFolder.Path + "/usuarios.xml";
 
         private BitmapImage imagCheck = new BitmapImage(new Uri("ms-appx:///Assets/bien.png"));
         private BitmapImage imagCross = new BitmapImage(new Uri("ms-appx:///Assets/mal.png"));
@@ -40,31 +46,9 @@ namespace Multimedia
         {
             this.InitializeComponent();
             datosusuario = new Registro_Usuario();
+
         }
 
-        private void TextBoxUsuario_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                if (ComprobarEntrada(txtUsuario.Text, usuario,
-                txtUsuario, imgCheckUsuario))
-                {
-                    // habilitar entrada de contraseña y pasarle el foco
-                    passContra.IsEnabled = true;
-                    passContra.Focus(FocusState.Programmatic);
-                    // deshabilitar entrada de login
-                    txtUsuario.IsEnabled = false;
-                }
-            }
-        }
-        private void passContra_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-           
-            if (ComprobarEntrada(passContra.Password, password, passContra, imgCheckContrasena))
-            {
-                btnLogin.Focus(FocusState.Programmatic);
-            }
-        }
         private async void OpenNewWindow()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
@@ -84,50 +68,76 @@ namespace Multimedia
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
         }
 
-        private Boolean ComprobarEntrada(string valorIntroducido, string valorValido,
-        Control componenteEntrada, Image imagenFeedBack)
+
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Boolean valido = false;
-            if (valorIntroducido.Equals(valorValido))
+            XmlDocument doc = new XmlDocument();
+            String username = txtUsuario.Text;
+            String pwd = passContra.Password;
+
+            if (username == "" || pwd == "")
             {
-                // borde y background en verde
-                componenteEntrada.Background = new SolidColorBrush(Colors.Green);
-                // imagen al lado de la entrada de usuario --> check
-                imagenFeedBack.Source = imagCheck;
-                valido = true;
+                MessageDialog dialog = new MessageDialog("El campo usuario o contraseña está vacío.", "Error al registrar usuario");
+                await dialog.ShowAsync();
+                return;
             }
-            else
+
+            SHA256 sha = SHA256.Create();
+            byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(pwd));
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
             {
-            // marcamos borde en rojo
-            componenteEntrada.Background = new SolidColorBrush(Colors.Red);
-            // imagen al lado de la entrada de usuario --> cross
-            imagenFeedBack.Source = imagCross;
-                valido = false;
+                builder.Append(bytes[i].ToString("x2"));
             }
-            return valido;
+            doc.Load(XMLFilePath);
+            XmlNodeList usersNodes = doc.SelectNodes("/Usuarios/Usuario");
+            foreach (XmlNode node in usersNodes)
+            {
+                String nombre = node.Attributes["Username"].Value;
+                String contra = node.Attributes["Pwd"].Value;
+                if (nombre == username && builder.ToString() == contra)
+                {
+                    lblError.Text = "Login exitoso";
+                    lblError.Visibility = Visibility.Visible;
+                }
+
+            }
+
+            OpenNewWindow1();
+
         }
 
-        private async void VentanaPrincipal_Unloaded(object sender, RoutedEventArgs e)
+        private async void OpenNewWindow1()
         {
-            var messageDialog = new MessageDialog("Gracias por usar nuestra aplicación...", "Despedida");
-            await messageDialog.ShowAsync();
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            if (ComprobarEntrada(txtUsuario.Text, usuario,
-                    txtUsuario, imgCheckUsuario)
-                &&
-                ComprobarEntrada(passContra.Password, password,
-                    passContra, imgCheckContrasena))
+            CoreApplicationView newView = CoreApplication.CreateNewView();
+            int newViewId = 0;
+            int currentViewId = ApplicationView.GetForCurrentView().Id;
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                //Pantalla correspondiente, todavía por definir
+                Frame frame = new Frame();
+                frame.Navigate(typeof(Principal), null);
+                Window.Current.Content = frame;
+                // You have to activate the window in order to show it later.
+                Window.Current.Activate();
+                newViewId = ApplicationView.GetForCurrentView().Id;
+            });
+
+            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+
+            if (viewShown)
+            {
+                await ApplicationViewSwitcher.SwitchAsync(newViewId, currentViewId, ApplicationViewSwitchingOptions.ConsolidateViews);
             }
         }
 
         private void btnRegistro_Click(object sender, RoutedEventArgs e)
         {
             OpenNewWindow();
+        }
+
+        private void btnRegistro_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            //TO DO: Añadir que si el botón que se pulsa es "Enter" se llame al método btnLogin_Click()
         }
     }
 }

@@ -135,9 +135,12 @@ namespace Multimedia
             OpenNewWindow();
         }
 
-        private void btnRegistro_KeyUp(object sender, KeyRoutedEventArgs e)
+        private void passContra_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            //TO DO: Añadir que si el botón que se pulsa es "Enter" se llame al método btnLogin_Click()
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

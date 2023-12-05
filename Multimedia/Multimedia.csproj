@@ -144,6 +144,7 @@
     <Compile Include="Trailers.xaml.cs">
       <DependentUpon>Trailers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <Compile Include="Videojuegos.xaml.cs">
       <DependentUpon>Videojuegos.xaml</DependentUpon>
     </Compile>

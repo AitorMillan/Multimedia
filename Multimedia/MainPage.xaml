@@ -43,11 +43,10 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="Fondo_Login" 
-                   Stroke="Black"
-                   StrokeThickness="3" 
+                   Stroke="Black" 
                    RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.ColumnSpan="5" Grid.RowSpan="4" Grid.Row="2" Grid.Column="1">
             <Rectangle.Fill>
-                <SolidColorBrush Color="#FF0C0A0A" Opacity="1"/>
+                <SolidColorBrush Color="#FF212121" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
 

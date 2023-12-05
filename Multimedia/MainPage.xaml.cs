@@ -103,11 +103,11 @@ namespace Multimedia
 
             }
 
-            OpenNewWindow1();
+            abrirPestañaPrincipal();
 
         }
 
-        private async void OpenNewWindow1()
+        private async void abrirPestañaPrincipal()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 0;

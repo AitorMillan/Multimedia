@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
     <Grid>
 
@@ -43,19 +43,19 @@
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="1" PointerReleased="textBox1_PointerReleased">
-            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" TextDecorations="Underline" Text="Brownie de Chocolate con a penas ingredientes" FontSize="25"/>
+            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" TextDecorations="Underline" Text="Brownie de Chocolate con a penas ingredientes" FontSize="25" Foreground="White"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="1" Grid.RowSpan="1">
-            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Macarrones con salsa de queso al horno" PointerReleased="textBox2_PointerReleased"/>
+            <TextBlock x:Name="textBox2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Macarrones con salsa de queso al horno" PointerReleased="textBox2_PointerReleased" Foreground="White"/>
         </Viewbox>
 
         <Viewbox Grid.Row="3" Grid.Column="1">
-            <TextBlock x:Name="textBox3" Grid.Row="3" FontSize="25" FontWeight="Bold" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Tarta de galletas y chocolate" PointerReleased="textBox3_PointerReleased"/>
+            <TextBlock x:Name="textBox3" Grid.Row="3" FontSize="25" FontWeight="Bold" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Tarta de galletas y chocolate" PointerReleased="textBox3_PointerReleased" Foreground="White"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="3">
-            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Tarta de queso con mermelada de arándanos" PointerReleased="textBox4_PointerReleased"/>
+            <TextBlock x:Name="textBox4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="25" Text="Tarta de queso con mermelada de arándanos" PointerReleased="textBox4_PointerReleased" Foreground="White"/>
         </Viewbox>
         
        

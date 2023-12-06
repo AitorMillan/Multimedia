@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -33,15 +33,15 @@
               AreTransportControlsEnabled="True" AutoPlay="False" Source="/Assets/Columbia Quevedo Video Oficial.mp4" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,10,0,0" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
         <Viewbox Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock x:Name="txtBlockTitulo" Grid.Column="1" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontFamily="Franklin Gothic Book"/>
+            <TextBlock x:Name="txtBlockTitulo" Grid.Column="1" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Franklin Gothic Book"/>
         </Viewbox>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Margin="10,20,0,0" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin, LeftPosition, RightPosition">
-            <TextBlock x:Name="txtDescripcion" TextWrapping="Wrap" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="txtDescripcion" TextWrapping="Wrap" Grid.Row="2" Grid.ColumnSpan="2" Foreground="White"/>
         </ScrollViewer>
 
         <Viewbox Grid.Row="4" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <Button x:Name="btnDescargaVideos" Content="Descargar Vídeo" Foreground="Black" Background="#FF2EAFE0" FontSize="26" FontWeight="Bold" Click="btnDescargaVideos_Click" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="Transparent"/>
+            <Button x:Name="btnDescargaVideos" Content="Descargar Vídeo" Foreground="Black" Background="#FF2EAFE0" FontSize="26" FontWeight="Bold" Click="btnDescargaVideos_Click" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="White"/>
         </Viewbox>
 
     </Grid>

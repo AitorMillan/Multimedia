@@ -25,6 +25,7 @@ namespace Multimedia
     /// </summary>
     public sealed partial class Principal : Page
     {
+        Usuario usuario;
         public Principal()
         {
             this.InitializeComponent();
@@ -101,6 +102,13 @@ namespace Multimedia
         private void desplegar_Click(object sender, RoutedEventArgs e)
         {
             sView.IsPaneOpen = !sView.IsPaneOpen;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            usuario = (Usuario)e.Parameter;
+            txtBlockUser.Text = "¡Bienvenido "+usuario.getUserName()+"!";
         }
     }
 }

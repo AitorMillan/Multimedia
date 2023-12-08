@@ -7,6 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="white">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF4275C9"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid x:Name="pnlDisenoPrincipal" Margin="0,0,0,-16">
         <Grid.RowDefinitions>
             <RowDefinition Height="65*"/>
@@ -43,11 +55,10 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle x:Name="Fondo_Login" 
-                   Stroke="Black"
-                   StrokeThickness="3" 
+                   Stroke="Black" 
                    RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.ColumnSpan="5" Grid.RowSpan="4" Grid.Row="2" Grid.Column="1">
             <Rectangle.Fill>
-                <SolidColorBrush Color="#FF0C0A0A" Opacity="1"/>
+                <SolidColorBrush Color="#FF212121" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
 
@@ -63,8 +74,8 @@
             <TextBlock x:Name="lblLogin" Text="Usuario" Foreground="#FFF2EDED" FontSize="30" HorizontalAlignment="Left"/>
             <TextBox x:Name="txtUsuario" TextWrapping="Wrap" TabIndex="1" Grid.ColumnSpan="2" Grid.Row="1" Width="404.8"/>
             <TextBlock x:Name="lblContra" Text="Contraseña" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6EFEF" FontSize="30" RenderTransformOrigin="-0.309,0.544" Grid.ColumnSpan="2" Grid.Row="1"/>
-            <PasswordBox x:Name="passContra" PasswordChar="*" Background="#FF9C8787" TabIndex="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50"/>
-            <TextBlock x:Name="lblError" Margin="0,15,0,0" FontSize="16"/>
+            <PasswordBox x:Name="passContra" PasswordChar="*" Background="#FF9C8787" TabIndex="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Height="50" KeyUp="passContra_KeyUp"/>
+            <TextBlock x:Name="lblError" Margin="0,15,0,0" FontSize="16" Foreground="White"/>
 
             </StackPanel>
             </Viewbox>
@@ -78,7 +89,7 @@
         <StackPanel Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Margin="0,10,0,0">
             <Button x:Name="btnLogin" Content="Iniciar Sesión" Background="#FF5180E5" Foreground="#FFF3E9E9" FontWeight="Bold" FontSize="25" TabIndex="3" RenderTransformOrigin="0.545,1.188" Grid.Row="4" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="btnLogin_Click"/>
             <Button x:Name="btnRegistro" 
-       Content="Registrarse" Foreground="#FFF3E9E9" Background="#FF5180E5" FontSize="25" Grid.Row="4" FontWeight="Bold" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0" Click="btnRegistro_Click" KeyUp="btnRegistro_KeyUp"/>
+       Content="Registrarse" Foreground="#FFF3E9E9" Background="#FF5180E5" FontSize="25" Grid.Row="4" FontWeight="Bold" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,20" Click="btnRegistro_Click"/>
         </StackPanel>
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="2">

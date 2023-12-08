@@ -31,26 +31,8 @@ namespace Multimedia
         public Registro_Usuario()
         {
             this.InitializeComponent();
-            PrepararArchivo();
         }
 
-        private async void PrepararArchivo()
-        {
-            /*TO DO: Añadir a PrepararArchivo el xml Videos.xml */
-            StorageFile file;
-
-            try
-            {
-                file = await localFolder.GetFileAsync("usuarios.xml");
-            }
-            catch (FileNotFoundException)
-            {
-                // El archivo no existe en LocalFolder, así que lo copiamos desde el paquete
-                StorageFile initialFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/usuarios.xml"));
-                // Usa ReplaceExisting para sobrescribir si ya existe
-                file = await initialFile.CopyAsync(localFolder, "usuarios.xml", NameCollisionOption.ReplaceExisting);
-            }
-        }
 
 
         private async void MostrarMensaje(string mensaje)

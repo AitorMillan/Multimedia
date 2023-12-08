@@ -8,6 +8,17 @@
     mc:Ignorable="d"
     Background="White">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF4275C9"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid x:Name="Fondo_Ventana">
         <Grid.RowDefinitions>
             <RowDefinition Height="111*"/>
@@ -42,10 +53,9 @@
 
         <Rectangle x:Name="Fondo_Login" 
                    Stroke="Black"
-                   StrokeThickness="3" 
                    RenderTransformOrigin="0.75,0.75" RadiusX="10" RadiusY="10" Grid.Column="1" Grid.RowSpan="6" Grid.ColumnSpan="5" Grid.Row="1" >
             <Rectangle.Fill>
-                <SolidColorBrush Color="#FF0C0A0A" Opacity="1"/>
+                <SolidColorBrush Color="#FF212121" Opacity="1"/>
             </Rectangle.Fill>
         </Rectangle>
 

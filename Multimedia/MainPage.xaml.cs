@@ -19,11 +19,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.ViewManagement;
 using Windows.Storage;
 using System.Xml;
 using System.Security.Cryptography;
 using System.Text;
+using Windows.UI.StartScreen;
 
 
 
@@ -45,8 +45,29 @@ namespace Multimedia
         public MainPage()
         {
             this.InitializeComponent();
+            PrepararArchivo("usuarios.xml");
+            PrepararArchivo("Comentarios.xml");
             datosusuario = new Registro_Usuario();
 
+            saludo_inicial();
+
+        }
+
+        private async void PrepararArchivo(String nombreArchivo)
+        {
+            StorageFile file;
+
+            try
+            {
+                file = await localFolder.GetFileAsync(nombreArchivo);
+            }
+            catch (FileNotFoundException)
+            {
+                // El archivo no existe en LocalFolder, así que lo copiamos desde el paquete
+                StorageFile initialFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/"+nombreArchivo));
+                // Usa ReplaceExisting para sobrescribir si ya existe
+                file = await initialFile.CopyAsync(localFolder, nombreArchivo, NameCollisionOption.ReplaceExisting);
+            }
         }
 
         private async void OpenNewWindow()
@@ -99,15 +120,16 @@ namespace Multimedia
                 {
                     lblError.Text = "Login exitoso";
                     lblError.Visibility = Visibility.Visible;
+                    SessionState.Username = username;
                 }
 
             }
 
-            OpenNewWindow1();
+            abrirPestañaPrincipal();
 
         }
 
-        private async void OpenNewWindow1()
+        private async void abrirPestañaPrincipal()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 0;
@@ -135,9 +157,25 @@ namespace Multimedia
             OpenNewWindow();
         }
 
-        private void btnRegistro_KeyUp(object sender, KeyRoutedEventArgs e)
+        private void passContra_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            //TO DO: Añadir que si el botón que se pulsa es "Enter" se llame al método btnLogin_Click()
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
+
+        private async void saludo_inicial()
+        {
+            MediaElement mediaElement = new MediaElement();
+            var synth = new Windows.Media.SpeechSynthesis.SpeechSynthesizer();
+            Windows.Media.SpeechSynthesis.SpeechSynthesisStream stream = await
+           synth.SynthesizeTextToStreamAsync("Estás en la aplicación de " +
+           "ESITube 2023. Bienvenido!!!");
+            mediaElement.SetSource(stream, stream.ContentType);
+            mediaElement.Play();
+        }
+
+
     }
 }

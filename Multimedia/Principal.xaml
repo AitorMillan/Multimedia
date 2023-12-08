@@ -6,8 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF327287"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -26,10 +37,11 @@
             </Button>
         </Border>
 
-        <SplitView x:Name="sView" IsPaneOpen="True" Grid.Row="1" Grid.ColumnSpan="2" DisplayMode="CompactInline" CompactPaneLength="50">
+        <SplitView x:Name="sView" IsPaneOpen="True" Grid.Row="1" Grid.ColumnSpan="2" DisplayMode="CompactInline" CompactPaneLength="50" PaneBackground="Black">
             <SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -42,18 +54,18 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <SymbolIcon Grid.Row="0" Margin="4" Symbol="Audio"></SymbolIcon>
-                    <SymbolIcon Grid.Row="1" Margin="4" Symbol="Video"></SymbolIcon>
-                    <SymbolIcon Grid.Row="2" Margin="4" Symbol="Play"></SymbolIcon>
-                    <SymbolIcon Grid.Row="3" Margin="4" Symbol="Shop"></SymbolIcon>
-                    <SymbolIcon Grid.Row="4" Margin="4" Symbol="Edit"></SymbolIcon>
+                    <SymbolIcon Grid.Row="0" Margin="4" Symbol="Audio" Foreground="White"></SymbolIcon>
+                    <SymbolIcon Grid.Row="1" Margin="4" Symbol="Video" Foreground="White"></SymbolIcon>
+                    <SymbolIcon Grid.Row="2" Margin="4" Symbol="Play" Foreground="White"></SymbolIcon>
+                    <SymbolIcon Grid.Row="3" Margin="4" Symbol="Shop" Foreground="White"></SymbolIcon>
+                    <SymbolIcon Grid.Row="4" Margin="4" Symbol="Edit" Foreground="White"></SymbolIcon>
 
-                    <Button x:Name="btnMusica" Grid.Row="0" Grid.Column="1" Content="Música" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnMusica_Click"/>
-                    <Button x:Name="btnTrailersPeliculas" Grid.Row="1" Grid.Column="1" Content="Trailers películas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnTrailers_Click"/>
-                    <Button x:Name="btnTrailersVideojuegos" Grid.Row="2" Grid.Column="2" Content="Trailers videojuegos" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnVideoJuegos_Click"/>
-                    <Button x:Name="btnRecetasCocina" Grid.Row="3" Grid.Column="3" Content="Recetas de cocina" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnRecetas_Click"/>
-                    <Button x:Name="btnManualidades" Grid.Row="4" Grid.Column="4" Content="Manualidades" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnManualidades_Click"/>
-
+                    <Button x:Name="btnMusica" Grid.Row="0" Grid.Column="1" Content="Música" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnMusica_Click" Foreground="White" Background="#FF24A085" Height="50"/>
+                    <Button x:Name="btnTrailersPeliculas" Grid.Row="1" Grid.Column="1" Content="Trailers películas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnTrailers_Click" Foreground="White" Height="50" Background="#FFAC43D2"/>
+                    <Button x:Name="btnTrailersVideojuegos" Grid.Row="2" Grid.Column="2" Content="Trailers videojuegos" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnVideoJuegos_Click" Foreground="White" Height="50" Background="#FF5E9C43"/>
+                    <Button x:Name="btnRecetasCocina" Grid.Row="3" Grid.Column="3" Content="Recetas de cocina" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnRecetas_Click" Foreground="White" Height="50" Background="#FFB02C49"/>
+                    <Button x:Name="btnManualidades" Grid.Row="4" Grid.Column="4" Content="Manualidades" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnManualidades_Click" Foreground="White" Height="50" Background="#FF2D1D8D"/>
+                    <TextBlock x:Name="txtBlockUser" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Foreground="White" />
                 </Grid>
             </SplitView.Pane>
 

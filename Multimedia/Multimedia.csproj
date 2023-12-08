@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Comentario.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +142,7 @@
     <Compile Include="ReproduccionVideos.xaml.cs">
       <DependentUpon>ReproduccionVideos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SessionState.cs" />
     <Compile Include="Trailers.xaml.cs">
       <DependentUpon>Trailers.xaml</DependentUpon>
     </Compile>
@@ -157,10 +159,13 @@
   <ItemGroup>
     <Content Include="Assets\Alvaro Diaz, Tainy - FATAL FANTASSY.mp4" />
     <Content Include="Assets\Brownie de Chocolate con a penas ingredientes.mp4" />
+    <Content Include="Assets\Comentarios.xml" />
     <Content Include="Assets\Counter Strike 2 Tráiler Oficial.mp4" />
     <Content Include="Assets\Fifa 2 Tráiler Oficial.mp4" />
     <Content Include="Assets\flecha-atras.png" />
     <Content Include="Assets\Fortnite Tráiler Oficial %282023%29.mp4" />
+    <Content Include="Assets\icons8-descargar-16.png" />
+    <Content Include="Assets\icons8-descargar-40.png" />
     <Content Include="Assets\Los Juegos Del Hambre Balada De Pájaros Cantores Y Serpientes.mp4" />
     <Content Include="Assets\Macarrones con salsa de queso al horno.mp4" />
     <Content Include="Assets\Napoleon Official Trailer.mp4" />

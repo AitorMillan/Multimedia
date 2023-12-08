@@ -8,41 +8,64 @@
     mc:Ignorable="d"
     Background="Black">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="162*"/>
-            <ColumnDefinition Width="1301*"/>
-            <ColumnDefinition Width="37*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="543*"/>
-            <RowDefinition Height="234*"/>
-            <RowDefinition Height="24*"/>
-            <RowDefinition Height="88*"/>
-            <RowDefinition Height="28*"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="162*"/>
+                <ColumnDefinition Width="1301*"/>
+                <ColumnDefinition Width="37*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="95*"/>
+                <RowDefinition Height="448*"/>
+                <RowDefinition Height="149*"/>
+                <RowDefinition Height="197*"/>
+                <RowDefinition Height="28*"/>
+            </Grid.RowDefinitions>
 
-        <Viewbox>
-            <Button x:Name="btnAtras" Click="btnAtras_Click" Background="#FF0E3E50" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Image Source="/Assets/flecha-atras.png"/>
-            </Button>
-        </Viewbox>
+            <Viewbox>
+                <Button x:Name="btnAtras" Click="btnAtras_Click" Background="#FF0E3E50" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Image Source="/Assets/flecha-atras.png"/>
+                </Button>
+            </Viewbox>
 
-        <MediaElement x:Name="mediaElementVideo"
-              AreTransportControlsEnabled="True" AutoPlay="False" Source="/Assets/Columbia Quevedo Video Oficial.mp4" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,10,0,0" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <MediaElement x:Name="mediaElementVideo"
+              AreTransportControlsEnabled="True" AutoPlay="False" Source="/Assets/Columbia Quevedo Video Oficial.mp4" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,10,0,0" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Viewbox Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock x:Name="txtBlockTitulo" Grid.Column="1" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Franklin Gothic Book"/>
-        </Viewbox>
+            <Viewbox Grid.Column="1" Margin="15,0,0,0">
+                <TextBlock x:Name="txtBlockTitulo" Grid.Column="1" TextWrapping="Wrap" Text="TextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Franklin Gothic Book"/>
+            </Viewbox>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Margin="10,20,0,0" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin, LeftPosition, RightPosition">
-            <TextBlock x:Name="txtDescripcion" TextWrapping="Wrap" Grid.Row="2" Grid.ColumnSpan="2" Foreground="White"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="3" Grid.Column="1" Margin="10,10,0,0">
+                <TextBlock x:Name="txtDescripcion" TextWrapping="Wrap" Grid.Row="2" Grid.ColumnSpan="2" Foreground="White"/>
+            </ScrollViewer>
+
+            <Viewbox VerticalAlignment="Top" Grid.Row="1" Margin="0,10,0,0">
+                <Button x:Name="btnDescargaVideos" Background="#FF0E3E50" FontSize="26" FontWeight="Bold" Click="btnDescargaVideos_Click" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="White" HorizontalAlignment="Stretch">
+                    <Image Source="/Assets/icons8-descargar-40.png"/>
+                </Button>
+            </Viewbox>
+
+        <ScrollViewer Grid.Column="1" Grid.Row="4">
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <!-- Lista de comentarios existentes -->
+                <ListView x:Name="listaComentarios" IsEnabled="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <TextBlock Text="{Binding User}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Texto}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Entrada de nuevos comentarios -->
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBox x:Name="txtComentario" Width="300" PlaceholderText="Escribe un comentario..." />
+                    <Button x:Name="btnEnviar" Content="Enviar" Margin="5,0,0,0" Click="btnEnviar_Click"/>
+                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
-
-        <Viewbox Grid.Row="4" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <Button x:Name="btnDescargaVideos" Content="Descargar Vídeo" Foreground="Black" Background="#FF2EAFE0" FontSize="26" FontWeight="Bold" Click="btnDescargaVideos_Click" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="White"/>
-        </Viewbox>
-
     </Grid>
 </Page>

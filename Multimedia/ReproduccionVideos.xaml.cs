@@ -15,6 +15,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Xml;
+using System.Collections.ObjectModel;
+using System.Security.Cryptography;
+using System.Text;
+using Windows.UI.Popups;
+using Windows.System;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,15 +31,18 @@ namespace Multimedia
     /// </summary>
     public sealed partial class ReproduccionVideos : Page
     {
+        ObservableCollection<Comentario> Comentarios { get; set; }
+        string XMLFilePath = ApplicationData.Current.LocalFolder.Path + "/Comentarios.xml";
         public ReproduccionVideos()
         {
             this.InitializeComponent();
+            Comentarios = new ObservableCollection<Comentario>();
+            listaComentarios.ItemsSource = Comentarios;
         }
 
-        public void iniciarVideo(String nombreCancion)
+        public void iniciarVideo(String nombreVideo)
         {
-            // Obtenemos la canción, ajustamos su sonido, la ponemos en bucle y la reproducimos
-            mediaElementVideo.Source = new Uri("ms-appx:///Assets/" + nombreCancion + ".mp4");
+            mediaElementVideo.Source = new Uri("ms-appx:///Assets/" + nombreVideo + ".mp4");
 
         }
 
@@ -53,6 +62,8 @@ namespace Multimedia
                 txtDescripcion.Text = data.Item2;
 
                 iniciarVideo(nombreVideo);
+                Comentarios.Clear();
+                cargarComentarios(nombreVideo);
 
                 txtBlockTitulo.Text = nombreVideo;
 
@@ -61,7 +72,26 @@ namespace Multimedia
             }
         }
 
+        private void cargarComentarios(String nombreVideo)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(XMLFilePath);
 
+            XmlNodeList comentNodes = doc.SelectNodes("/Comentarios/Comentario");
+            foreach (XmlNode node in comentNodes)
+            {
+                if (node.Attributes["Video"]?.Value == nombreVideo)
+                {
+                    Comentario comentario = new Comentario
+                    {
+                        Texto = node.Attributes["Texto"]?.Value,
+                        User = node.Attributes["User"]?.Value
+                    };
+                    Comentarios.Add(comentario);
+                }
+            }
+
+        }
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
@@ -81,7 +111,6 @@ namespace Multimedia
             await DescargarVideo(nombreVideo);
         }
 
-        // Método para descargar el video
         // Método para descargar el video
         private async Task DescargarVideo(string nombreVideo)
         {
@@ -121,7 +150,41 @@ namespace Multimedia
             await mensajeDialog.ShowAsync();
         }
 
+        private void btnEnviar_Click(object sender, RoutedEventArgs e)
+        {
+            String texto = txtComentario.Text.Trim();
+            String username = SessionState.Username;
+
+            XmlDocument doc = new XmlDocument();
+
+            if (texto == "")
+            {
+                return;
+            }
+            Comentario nuevoComentario = new Comentario()
+            {
+                Texto = texto,
+                User = username
+            };
+
+            Comentarios.Add(nuevoComentario);
+            doc.Load(XMLFilePath);
+            XmlElement coment = doc.CreateElement("Comentario");
+            coment.SetAttribute("Video", txtBlockTitulo.Text);
+            coment.SetAttribute("User", username);
+            coment.SetAttribute("Texto", texto);
+
+
+            // Obtener el elemento raíz del documento XML
+            XmlElement raiz = doc.DocumentElement;
+
+            // Agregar el nuevo elemento Excursionista al elemento raíz
+            raiz.AppendChild(coment);
+
+            // Guardar los cambios en el archivo XML
+            doc.Save(XMLFilePath);
+            }
+        }
     }
 
-}
 

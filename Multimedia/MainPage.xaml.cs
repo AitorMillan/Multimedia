@@ -45,10 +45,29 @@ namespace Multimedia
         public MainPage()
         {
             this.InitializeComponent();
+            PrepararArchivo("usuarios.xml");
+            PrepararArchivo("Comentarios.xml");
             datosusuario = new Registro_Usuario();
 
             saludo_inicial();
 
+        }
+
+        private async void PrepararArchivo(String nombreArchivo)
+        {
+            StorageFile file;
+
+            try
+            {
+                file = await localFolder.GetFileAsync(nombreArchivo);
+            }
+            catch (FileNotFoundException)
+            {
+                // El archivo no existe en LocalFolder, así que lo copiamos desde el paquete
+                StorageFile initialFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/"+nombreArchivo));
+                // Usa ReplaceExisting para sobrescribir si ya existe
+                file = await initialFile.CopyAsync(localFolder, nombreArchivo, NameCollisionOption.ReplaceExisting);
+            }
         }
 
         private async void OpenNewWindow()
@@ -76,7 +95,6 @@ namespace Multimedia
             XmlDocument doc = new XmlDocument();
             String username = txtUsuario.Text;
             String pwd = passContra.Password;
-            Usuario usuario = null;
 
             if (username == "" || pwd == "")
             {
@@ -102,16 +120,16 @@ namespace Multimedia
                 {
                     lblError.Text = "Login exitoso";
                     lblError.Visibility = Visibility.Visible;
-                    usuario = new Usuario(username, pwd);
+                    SessionState.Username = username;
                 }
 
             }
 
-            abrirPestañaPrincipal(usuario);
+            abrirPestañaPrincipal();
 
         }
 
-        private async void abrirPestañaPrincipal(Usuario usuario)
+        private async void abrirPestañaPrincipal()
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 0;
@@ -119,7 +137,7 @@ namespace Multimedia
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame frame = new Frame();
-                frame.Navigate(typeof(Principal), usuario);
+                frame.Navigate(typeof(Principal), null);
                 Window.Current.Content = frame;
                 // You have to activate the window in order to show it later.
                 Window.Current.Activate();

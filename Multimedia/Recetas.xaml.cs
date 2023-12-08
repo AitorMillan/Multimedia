@@ -41,8 +41,8 @@ namespace Multimedia
                 string nombre = node.Attributes["Titulo"].Value;
                 if (nombre == nombreVideo)
                 {
-                    // Crear y mostrar el cuadro de diálogo
                     descripcionVideo = node.Attributes["Descripcion"].Value;
+                    return descripcionVideo;
                 }
             }
             return descripcionVideo;

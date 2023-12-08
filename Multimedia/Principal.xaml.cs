@@ -107,8 +107,8 @@ namespace Multimedia
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            usuario = (Usuario)e.Parameter;
-            txtBlockUser.Text = "¡Bienvenido "+usuario.getUserName()+"!";
+
+            txtBlockUser.Text = "¡Bienvenido "+SessionState.Username+"!";
         }
     }
 }

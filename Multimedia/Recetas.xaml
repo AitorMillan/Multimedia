@@ -43,7 +43,7 @@
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="1" PointerReleased="textBox1_PointerReleased">
-            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" TextDecorations="Underline" Text="Brownie de Chocolate con a penas ingredientes" FontSize="25" Foreground="White"/>
+            <TextBlock x:Name="textBox1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold" TextDecorations="Underline" Text="Brownie de Chocolate con apenas ingredientes" FontSize="25" Foreground="White"/>
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="1" Grid.RowSpan="1">

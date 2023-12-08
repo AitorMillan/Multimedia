@@ -11,13 +11,9 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Red"/>
-                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Yellow"/>
-                </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
-                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Red"/>
-                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Yellow"/>
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF327287"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
@@ -69,7 +65,7 @@
                     <Button x:Name="btnTrailersVideojuegos" Grid.Row="2" Grid.Column="2" Content="Trailers videojuegos" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnVideoJuegos_Click" Foreground="White" Height="50" Background="#FF5E9C43"/>
                     <Button x:Name="btnRecetasCocina" Grid.Row="3" Grid.Column="3" Content="Recetas de cocina" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnRecetas_Click" Foreground="White" Height="50" Background="#FFB02C49"/>
                     <Button x:Name="btnManualidades" Grid.Row="4" Grid.Column="4" Content="Manualidades" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="8,0,8,8" Click="btnManualidades_Click" Foreground="White" Height="50" Background="#FF2D1D8D"/>
-                    <TextBlock x:Name="txtBlockUser" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" />
+                    <TextBlock x:Name="txtBlockUser" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Foreground="White" />
                 </Grid>
             </SplitView.Pane>
 

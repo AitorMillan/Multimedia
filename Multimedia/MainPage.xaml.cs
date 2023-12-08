@@ -19,11 +19,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.ViewManagement;
 using Windows.Storage;
 using System.Xml;
 using System.Security.Cryptography;
 using System.Text;
+using Windows.UI.StartScreen;
 
 
 
@@ -46,6 +46,8 @@ namespace Multimedia
         {
             this.InitializeComponent();
             datosusuario = new Registro_Usuario();
+
+            saludo_inicial();
 
         }
 
@@ -144,5 +146,18 @@ namespace Multimedia
                 btnLogin_Click(sender, e);
             }
         }
+
+        private async void saludo_inicial()
+        {
+            MediaElement mediaElement = new MediaElement();
+            var synth = new Windows.Media.SpeechSynthesis.SpeechSynthesizer();
+            Windows.Media.SpeechSynthesis.SpeechSynthesisStream stream = await
+           synth.SynthesizeTextToStreamAsync("Estás en la aplicación de " +
+           "ESITube 2023. Bienvenido!!!");
+            mediaElement.SetSource(stream, stream.ContentType);
+            mediaElement.Play();
+        }
+
+
     }
 }

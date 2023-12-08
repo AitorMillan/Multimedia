@@ -74,6 +74,7 @@ namespace Multimedia
             XmlDocument doc = new XmlDocument();
             String username = txtUsuario.Text;
             String pwd = passContra.Password;
+            Usuario usuario = null;
 
             if (username == "" || pwd == "")
             {
@@ -99,15 +100,16 @@ namespace Multimedia
                 {
                     lblError.Text = "Login exitoso";
                     lblError.Visibility = Visibility.Visible;
+                    usuario = new Usuario(username, pwd);
                 }
 
             }
 
-            abrirPestañaPrincipal();
+            abrirPestañaPrincipal(usuario);
 
         }
 
-        private async void abrirPestañaPrincipal()
+        private async void abrirPestañaPrincipal(Usuario usuario)
         {
             CoreApplicationView newView = CoreApplication.CreateNewView();
             int newViewId = 0;
@@ -115,7 +117,7 @@ namespace Multimedia
             await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Frame frame = new Frame();
-                frame.Navigate(typeof(Principal), null);
+                frame.Navigate(typeof(Principal), usuario);
                 Window.Current.Content = frame;
                 // You have to activate the window in order to show it later.
                 Window.Current.Activate();

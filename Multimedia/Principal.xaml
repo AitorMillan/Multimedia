@@ -14,6 +14,8 @@
                 <ResourceDictionary x:Key="Light">
                     <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF327287"/>
+                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#FF327287"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>

@@ -53,8 +53,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="5">
-                                <TextBlock Text="{Binding User}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Texto}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding User}" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Text="{Binding Texto}" TextWrapping="Wrap" Foreground="White"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -62,9 +62,12 @@
 
                 <!-- Entrada de nuevos comentarios -->
                 <StackPanel Orientation="Horizontal" Margin="5">
+                    
                     <TextBox x:Name="txtComentario" Width="300" PlaceholderText="Escribe un comentario..." />
-                    <Button x:Name="btnEnviar" Content="Enviar" Margin="5,0,0,0" Click="btnEnviar_Click"/>
-                </StackPanel>
+                    <Viewbox>    
+                        <Button x:Name="btnEnviar" Content="Enviar" Margin="5,0,0,0" Click="btnEnviar_Click" FocusVisualPrimaryBrush="#FF237DAC" Background="#FF1C9DD6"/>
+                    </Viewbox>
+                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

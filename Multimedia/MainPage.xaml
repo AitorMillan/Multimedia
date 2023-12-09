@@ -14,10 +14,13 @@
                 <ResourceDictionary x:Key="Light">
                     <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
                     <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF4275C9"/>
+                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#FF4275C9"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Page.Resources>
+
 
     <Grid x:Name="pnlDisenoPrincipal" Margin="0,0,0,-16">
         <Grid.RowDefinitions>
